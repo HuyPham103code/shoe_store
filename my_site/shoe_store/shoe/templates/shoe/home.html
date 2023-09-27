@@ -1,0 +1,74 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+    <div class="container">
+        <!-- display all card -->
+        <!-- --các sản phẩm mới nhất-- -->
+        {% if list_shoe %}
+            <div class="row">
+                {%  for shoe in list_shoe %}
+                <div class="col s4">
+                        <div class="card" style="height: 400px; overflow: hidden;">
+                            <div class="card-image" style="height: 250px; overflow: hidden;">
+                                <a href="{% url 'show_shoe' shoe.id %}"><img style="width: 100%; height: 100%; object-fit: cover;" src="{{shoe.img}}" alt="can't load"></a>
+                            </div>
+                            <div class="card-content">
+                                <p>{{ shoe.title }}</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="">Price: {{shoe.price}}.000<span class="woocommerce-Price-currencySymbol">₫</span></a>
+                            </div>
+                        </div>
+                </div>
+                {% endfor %}       
+            </div>
+        {% else %}
+            <h1>Don't find any shoe</h1>
+        {% endif %}
+    </div>
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="col s4">
+                <div class="card" style="height: 400px; overflow: hidden;">
+                    <div class="card-image" style="height: 250px; overflow: hidden;">
+                        <a href=""><img style="width: 100%; height: 100%; object-fit: cover;" src="https://scontent.fsgn2-9.fna.fbcdn.net/v/t1.15752-9/379488827_327136353032967_88930138645688650_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=ae9488&_nc_ohc=Vh1nZMK3p3UAX_EMYYG&_nc_ht=scontent.fsgn2-9.fna&_nc_e2o=f&oh=03_AdQ-2Bw7YUkoxI9DCp55dg0ZmXG6VGx6z1o6BNmRcpnXZA&oe=65349D53" alt="can't load"></a>
+                    </div>
+                    <div class="card-content">
+                        <p>Test</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="">View listing: Price </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s4">
+                <div class="card" style="height: 400px; overflow: hidden;">
+                    <div class="card-image" style="height: 250px; overflow: hidden;">
+                        <a href=""><img style="width: 100%; height: 100%; object-fit: cover;" src="https://scontent.fsgn13-4.fna.fbcdn.net/v/t39.30808-6/380732154_698937755606156_3166308585291203548_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=49d041&_nc_ohc=IB-dYXhGCx0AX_h4l4S&_nc_ht=scontent.fsgn13-4.fna&_nc_e2o=f&oh=00_AfBYkqh0zRXjlLmS3HNvV77CfTLwf8hGw-zV9d6fCLUNnw&oe=6516291E" alt="can't load"></a>
+                    </div>
+                    <div class="card-content">
+                        <p>Test</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="">View listing: Price </a>
+                    </div>
+                </div>
+            </div> -->

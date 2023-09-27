@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>home</title>
+</head>
+<body>
+    <!-- --header -->
+    <nav>
+        <div class="nav-wrapper">
+          <a href="/" class="brand-logo left">
+            <img class="logo" style="width: 60px; height: 60px; margin: 3px 0 0 3px;" src="https://scontent.fsgn8-4.fna.fbcdn.net/v/t1.18169-9/309264_441386509237979_660724799_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=174925&_nc_ohc=ydXCIkoAMDYAX9cO1Ze&_nc_ht=scontent.fsgn8-4.fna&_nc_e2o=f&oh=00_AfAjPpjE-aWihU4vadjYwYPAT4tn9Uikmy6hQ1k604VmnA&oe=6538C87F" alt="logo phong trào">
+          </a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="{% url 'show_category' 'NIKE' %}">NIKE</a></li>
+            <li><a href="{% url 'show_category' 'ADIDAS' %}">ADIDAS</a></li>
+            <li><a href="{% url 'show_category' 'VANS-CONVERSE' %}">VANS-CONVERSE</a></li>
+            <li><a href="{% url 'show_category' 'new-balance' %}">NEW BALANCE</a></li>
+            <li><a href="{% url 'show_category' 'MLB' %}">MLB</a></li>
+            <li><a href="{% url 'show_category' 'louis-vuitton' %}">LV</a></li>
+            <li><a href="{% url 'show_category' 'giay-thoi-trang' %}">HÃNG KHÁC</a></li>
+            <li><a href="{% url 'show_category' 'DÉP' %}">DÉP</a></li>
+            <li><a href="{% url 'show_category' 'xa-hang' %}">HÀNG XẢ</a></li>
+            <li><a href="{% url 'show_category' 'uu-dai-online' %}">ONLINE GIÁ SỐC</a></li>
+            <li style="margin-left: 20px;"><a href=""><i class="material-icons left">search</i></a>
+          </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="color: black;">
+
+        <h1 style="text-align: center;cursor: default; text-decoration: none;">Hãy nhanh tay để chọn riêng cho mình một đôi giày ưng ý</h1>
+        <div class="row">
+            <div class="col s4">
+                <!-- Promo Content 1 goes here -->
+                <div class="center">
+                    <i class="large material-icons" style="color: #EE6E73">flash_on</i>
+                    <p>Fast craigslist web scraper</p>
+                    <p class="light center">Scrape away right here with a beautiful GUI.</p>
+                </div>
+            </div>
+
+            <div class="col s4">
+                <!-- Promo Content 2 goes here -->
+                <div class="center">
+                    <i class="large material-icons" style="color: orange">camera</i>
+                    <p>Filter your searches</p>
+                    <p class="light center">We built in functionality to filter based on pricing.</p>
+                </div>
+            </div>
+
+            <div class="col s4">
+                <!-- Promo Content 3 goes here -->
+                <div class="center">
+                    <i class="large material-icons" style="color: blue">chrome_reader_mode</i>
+                    <p>A much sexier front-end to Craigslist</p>
+                    <p class="light center">We built this with ❤️</p>
+                </div>
+            </div>
+        </div>
+
+         <!-- search field -->
+        <form action="{% url 'search_category' %}" method="POST">
+            {% csrf_token%}
+            <input type="text" name="search" placeholder="search">
+
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+            </button>
+        </form>
+
+    </div>
+
+
+    <!-- chỗ thay đổi layout của mỗi trang -->
+    {% block content %} 
+
+    {% endblock content%}
+
+
+    <!--
+        chỗ chốt nội dung
+    -->
+    <div style="background-color: #555555; text-align: center; margin: 0px; color:white; font-size: 20px;">
+        <p style="margin: 0px; padding:3px;">Hệ thống của hàng giày chính hãng</p>
+        <p style="margin: 0px; padding: 3px;">Shoe Store</p>
+    </div>
+
+    <!-- --footer-- -->
+    <footer class="page-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="black-text">Shoe Store</h5>
+              <p class="black-text text-lighten-4">Nơi cung cấp những loại giày chính hãng, giá rẻ.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+              <h5 class="black-text">Contact us</h5>
+              <ul>
+                <li><a class="black-text text-lighten-3" href="#!"><b>Địa chỉ: </b> Văn phòng Đoàn Thiếu Nhi, Lầu 1 nhà sinh hoạt giáo lý, Giáo xứ Hy Vọng số 69 Phan Huy Ích, P. 15, Q. Tân Bình, TPHCM</a></li>
+                <li><a class="black-text text-lighten-3" href="#!"><b>Facebook: </b>Phan Trần Thanh Thảo</a></li>
+                <li><a class="black-text text-lighten-3" href="#!"><b>Phone: </b>091234567 (Huy đẹp zai)</a></li>
+                <li><a class="black-text text-lighten-3" href="#!"><b>Email: </b>PQH@gmail.com</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container black-text">
+          © 2014 Copyright Text
+          <a class="black-text text-lighten-4 right" href="#!">More Links</a>
+          </div>
+        </div>
+    </footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
